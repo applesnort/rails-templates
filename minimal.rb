@@ -84,8 +84,8 @@ after_bundle do
   ########################################
 
   # Need to escape the carat "\^" for zsh compatibility: https://github.com/ohmyzsh/ohmyzsh/issues/449
-  run 'yarn add tailwindcss@npm:@tailwindcss/postcss7-compat postcss@\^7 autoprefixer@\^9 --verbose'
-  run 'yarn remove tailwindcss @tailwindcss/postcss7-compat --verbose'
+  run 'yarn add tailwindcss@npm:@tailwindcss/postcss7-compat postcss@\^7 autoprefixer@\^9'
+  run 'yarn remove tailwindcss @tailwindcss/postcss7-compat'
   run 'yarn add tailwindcss@latest postcss@latest autoprefixer@latest'
   run 'npx tailwindcss init'
 
