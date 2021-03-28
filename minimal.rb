@@ -27,7 +27,7 @@ YAML
 
 # Assets
 ########################################
-run 'rm -rf app/assets/stylesheets'
+# run 'rm -rf app/assets/stylesheets'
 run 'rm -rf vendor'
 # run 'curl -L https://github.com/lewagon/stylesheets/archive/master.zip > stylesheets.zip'
 # run 'unzip stylesheets.zip -d app/assets && rm stylesheets.zip && mv app/assets/rails-stylesheets-master app/assets/stylesheets'
@@ -82,8 +82,10 @@ after_bundle do
 
   # Webpacker / Yarn
   ########################################
-  run 'yarn add tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9'
-  run 'yarn remove tailwindcss @tailwindcss/postcss7-compat'
+
+  # Need to escape the carat "\^" for zsh compatibility: https://github.com/ohmyzsh/ohmyzsh/issues/449
+  run 'yarn add tailwindcss@npm:@tailwindcss/postcss7-compat postcss@\^7 autoprefixer@\^9 --verbose'
+  run 'yarn remove tailwindcss @tailwindcss/postcss7-compat --verbose'
   run 'yarn add tailwindcss@latest postcss@latest autoprefixer@latest'
   run 'npx tailwindcss init'
 
