@@ -1,12 +1,6 @@
 # Rails Template which adapts David Teren's `TailwindCSS 2.0 with Rails 6.1` article
 # https://davidteren.medium.com/tailwindcss-2-0-with-rails-6-1-postcss-8-0-9645e235892d
 
-# Intended to be run with the following console command
-# rails new \
-#   --skip-spring \
-#   -m /Users/Joel/source/rails-templates/rails61-tailwind2.rb \
-#   tails-test
-
 run 'rm -rf vendor'
 run 'rails webpacker:install'
 
