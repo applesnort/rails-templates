@@ -102,7 +102,7 @@ after_bundle do
   run 'yarn add tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9'
   run 'yarn remove tailwindcss @tailwindcss/postcss7-compat'
   run 'yarn add tailwindcss@latest postcss@latest autoprefixer@latest'
-  run 'npx tailwindcss init'
+  # run 'npx tailwindcss init'
 
   append_file 'app/javascript/packs/application.js', <<~JS
 
