@@ -104,17 +104,6 @@ after_bundle do
   run 'yarn add tailwindcss@latest postcss@latest autoprefixer@latest'
   run 'npx tailwindcss init'
 
-  append_file 'app/assets/stylesheets/application.scss', <<~SCSS
-
-    /* app/javascript/stylesheets/application.scss */
-    @import "tailwindcss/base";
-    @import "tailwindcss/components";
-
-    /* Add any custom CSS here */
-    @import "tailwindcss/utilities";
-  SCSS
-
-
   append_file 'app/javascript/packs/application.js', <<~JS
 
 
