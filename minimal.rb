@@ -4,7 +4,7 @@ run "if uname | grep -q 'Darwin'; then pgrep spring | xargs kill -9; fi"
 ########################################
 inject_into_file 'Gemfile', before: 'group :development, :test do' do
   <<~RUBY
-    gem 'autoprefixer-rails'
+    # gem 'autoprefixer-rails'
     gem 'simple_form'
     gem 'simple_form-tailwind'
   RUBY
@@ -29,8 +29,8 @@ YAML
 ########################################
 run 'rm -rf app/assets/stylesheets'
 run 'rm -rf vendor'
-run 'curl -L https://github.com/lewagon/stylesheets/archive/master.zip > stylesheets.zip'
-run 'unzip stylesheets.zip -d app/assets && rm stylesheets.zip && mv app/assets/rails-stylesheets-master app/assets/stylesheets'
+# run 'curl -L https://github.com/lewagon/stylesheets/archive/master.zip > stylesheets.zip'
+# run 'unzip stylesheets.zip -d app/assets && rm stylesheets.zip && mv app/assets/rails-stylesheets-master app/assets/stylesheets'
 
 # Dev environment
 ########################################
@@ -83,9 +83,9 @@ after_bundle do
   # Webpacker / Yarn
   ########################################
   run 'yarn add tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9'
-  # run 'yarn remove tailwindcss @tailwindcss/postcss7-compat'
-  # run 'yarn add tailwindcss@latest postcss@latest autoprefixer@latest'
-  # run 'npx tailwindcss init'
+  run 'yarn remove tailwindcss @tailwindcss/postcss7-compat'
+  run 'yarn add tailwindcss@latest postcss@latest autoprefixer@latest'
+  run 'npx tailwindcss init'
 
   append_file 'app/javascript/packs/application.js', <<~JS
 
