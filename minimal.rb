@@ -35,24 +35,6 @@ run 'unzip stylesheets.zip -d app/assets && rm stylesheets.zip && mv app/assets/
 ########################################
 gsub_file('config/environments/development.rb', /config\.assets\.debug.*/, 'config.assets.debug = false')
 
-# Layout
-########################################
-# if Rails.version < "6"
-#   scripts = <<~HTML
-#     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-#         <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-#   HTML
-#   gsub_file('app/views/layouts/application.html.erb', "<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>", scripts)
-# end
-
-# gsub_file('app/views/layouts/application.html.erb', "<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>", "<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>")
-
-# style = <<~HTML
-#   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-#       <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-# HTML
-# gsub_file('app/views/layouts/application.html.erb', "<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>", style)
-
 # README
 ########################################
 markdown_file_content = <<~MARKDOWN
@@ -100,8 +82,8 @@ after_bundle do
   # Webpacker / Yarn
   ########################################
   run 'yarn add tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9'
-  run 'yarn remove tailwindcss @tailwindcss/postcss7-compat'
-  run 'yarn add tailwindcss@latest postcss@latest autoprefixer@latest'
+  # run 'yarn remove tailwindcss @tailwindcss/postcss7-compat'
+  # run 'yarn add tailwindcss@latest postcss@latest autoprefixer@latest'
   # run 'npx tailwindcss init'
 
   append_file 'app/javascript/packs/application.js', <<~JS
